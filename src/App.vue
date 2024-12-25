@@ -1,30 +1,68 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
+<!-- src/App.vue -->
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="app">
+    <!-- Header / Navbar (optional) -->
+    <header>
+      <nav class="navbar">
+        <router-link to="/">Home</router-link>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+      <!-- Renders the active route’s component -->
+      <router-view />
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; {{ currentYear }} Your Company. All rights reserved.</p>
+    </footer>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
+<script setup lang="ts">
+import { ref } from 'vue'
+
+// Get the current year (just a small example of using composition API here)
+const currentYear = ref(new Date().getFullYear())
+
+</script>
+
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Simple layout styling */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+/* Header / Navbar */
+header {
+  background-color: #f8f8f8;
+  padding: 1rem;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+.navbar a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Main Content Area */
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 1rem;
+  margin-top: auto;
 }
 </style>
