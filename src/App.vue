@@ -22,9 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 // Get the current year (just a small example of using composition API here)
-const currentYear = ref(new Date().getFullYear())
-
+const currentYear = ref(new Date().getFullYear());
 </script>
